@@ -25,16 +25,16 @@ def handle_question():
     question = entry_question.get()
     if question:
         chat_display.insert(tk.END, f"Вы: {question}\n")
-        if "фильмы" in question.lower():
-            query = question.split("фильмы")[-1].strip()
+        if "фильмы" in question.lower() or "кино" in question.lower():
+            query = question.split("кино")[-1].strip()
             found_films = find_films(query)
             if found_films:
                 chat_display.insert(tk.END, "Кинопомощник: " + "\nКинопомощник: ".join(found_films) + "\n\n")
             else:
                 chat_display.insert(tk.END, "Кинопомощник: Фильмы не найдены\n\n")
-        elif "информация о" in question.lower():
-            query_parts = question.split(" ", 2)
-            film_name = query_parts[2]
+        elif "информация о фильме" in question.lower():
+            query_parts = question.split(" ")
+            film_name = " ".join(query_parts[3:])  # Изменяем индекс для извлечения названия фильма
             show_description(film_name)
         else:
             chat_display.insert(tk.END, "Кинопомощник: Извините, я не могу ответить на этот вопрос.\n\n")
