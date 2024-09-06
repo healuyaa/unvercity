@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ filename }}</title>
+</head>
+<body>
+    <h1>Текст документа: {{ filename }}</h1>
+    <p>{{ document }}</p>
+    
+    <h2>Ключевые слова:</h2>
+    <p>{{ ', '.join(keywords) }}</p>
+    
+    <a href="/">Вернуться к поиску</a>
+</body>
+</html>

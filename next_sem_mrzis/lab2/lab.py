@@ -109,7 +109,7 @@ class AutoencoderCombined():
 
 # Используем Oja's Rule
 autoencoder_oja = AutoencoderCombined(input_neuron=X.shape[1], encoding_neuron=5, learning_rate=0.093, rule_type='oja')
-autoencoder_oja.train(X, epochs=10000)
+autoencoder_oja.train(X, epochs=2000)
 
 # Используем Cumulative Delta Rule
 autoencoder_cumulative = AutoencoderCombined(input_neuron=X.shape[1], encoding_neuron=7, learning_rate=0.033, rule_type='cumulative', alpha=0.9)

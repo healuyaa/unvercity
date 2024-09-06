@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/project/unviercity/SMZKS/lab1/out/build/ninja",
+  "command": "C:\\tools\\msys2\\mingw64\\bin\\c++.exe -IC:/project/unviercity/SMZKS/lab1/include -g -o CMakeFiles\\lab1.dir\\src\\hamming.cpp.obj -c C:\\project\\unviercity\\SMZKS\\lab1\\src\\hamming.cpp",
+  "file": "C:\\project\\unviercity\\SMZKS\\lab1\\src\\hamming.cpp",
+  "output": "CMakeFiles\\lab1.dir\\src\\hamming.cpp.obj"
+},
+{
+  "directory": "C:/project/unviercity/SMZKS/lab1/out/build/ninja",
+  "command": "C:\\tools\\msys2\\mingw64\\bin\\c++.exe -IC:/project/unviercity/SMZKS/lab1/include -g -o CMakeFiles\\lab1.dir\\src\\main.cpp.obj -c C:\\project\\unviercity\\SMZKS\\lab1\\src\\main.cpp",
+  "file": "C:\\project\\unviercity\\SMZKS\\lab1\\src\\main.cpp",
+  "output": "CMakeFiles\\lab1.dir\\src\\main.cpp.obj"
+},
+{
+  "directory": "C:/project/unviercity/SMZKS/lab1/out/build/ninja",
+  "command": "C:\\tools\\msys2\\mingw64\\bin\\c++.exe -IC:/project/unviercity/SMZKS/lab1/include -g -o CMakeFiles\\lab1.dir\\src\\reed-solomon.cpp.obj -c C:\\project\\unviercity\\SMZKS\\lab1\\src\\reed-solomon.cpp",
+  "file": "C:\\project\\unviercity\\SMZKS\\lab1\\src\\reed-solomon.cpp",
+  "output": "CMakeFiles\\lab1.dir\\src\\reed-solomon.cpp.obj"
+}
+]

@@ -34,7 +34,7 @@ def handle_question():
                 chat_display.insert(tk.END, "Кинопомощник: Фильмы не найдены\n\n")
         elif "информация о фильме" in question.lower():
             query_parts = question.split(" ")
-            film_name = " ".join(query_parts[3:])  # Изменяем индекс для извлечения названия фильма
+            film_name = " ".join(query_parts[3:])
             show_description(film_name)
         else:
             chat_display.insert(tk.END, "Кинопомощник: Извините, я не могу ответить на этот вопрос.\n\n")

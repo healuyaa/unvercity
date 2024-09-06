@@ -22,7 +22,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 
 
-const char* dbPath = "C:/project/project_cmake/GIIS/lab2/BD/contats.db";
+const char* dbPath = "../../BD/contats.db";
 VCardSQLite vCardDB(dbPath);
 int InitSqlite3() {
     if (!vCardDB.openDatabase()) {
