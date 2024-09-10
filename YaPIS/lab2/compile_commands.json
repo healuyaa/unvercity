@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/project/unviercity/YaPIS/lab2/build",
+  "command": "C:\\tools\\msys2\\mingw64\\bin\\clang++.exe -IC:/project/unviercity/YaPIS/lab2/include -g -o CMakeFiles\\lab2.dir\\src\\analyzer.cpp.obj -c C:\\project\\unviercity\\YaPIS\\lab2\\src\\analyzer.cpp",
+  "file": "C:\\project\\unviercity\\YaPIS\\lab2\\src\\analyzer.cpp",
+  "output": "CMakeFiles\\lab2.dir\\src\\analyzer.cpp.obj"
+},
+{
+  "directory": "C:/project/unviercity/YaPIS/lab2/build",
+  "command": "C:\\tools\\msys2\\mingw64\\bin\\clang++.exe -IC:/project/unviercity/YaPIS/lab2/include -g -o CMakeFiles\\lab2.dir\\src\\main.cpp.obj -c C:\\project\\unviercity\\YaPIS\\lab2\\src\\main.cpp",
+  "file": "C:\\project\\unviercity\\YaPIS\\lab2\\src\\main.cpp",
+  "output": "CMakeFiles\\lab2.dir\\src\\main.cpp.obj"
+}
+]
