@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/project/unviercity/YaPIS/lab1/build",
+  "command": "C:\\tools\\msys2\\mingw64\\bin\\clang++.exe -IC:/project/unviercity/YaPIS/lab1/include -g -o CMakeFiles\\lab1.dir\\src\\main.cpp.obj -c C:\\project\\unviercity\\YaPIS\\lab1\\src\\main.cpp",
+  "file": "C:\\project\\unviercity\\YaPIS\\lab1\\src\\main.cpp",
+  "output": "CMakeFiles\\lab1.dir\\src\\main.cpp.obj"
+},
+{
+  "directory": "C:/project/unviercity/YaPIS/lab1/build",
+  "command": "C:\\tools\\msys2\\mingw64\\bin\\clang++.exe -IC:/project/unviercity/YaPIS/lab1/include -g -o CMakeFiles\\lab1.dir\\src\\tools.cpp.obj -c C:\\project\\unviercity\\YaPIS\\lab1\\src\\tools.cpp",
+  "file": "C:\\project\\unviercity\\YaPIS\\lab1\\src\\tools.cpp",
+  "output": "CMakeFiles\\lab1.dir\\src\\tools.cpp.obj"
+},
+{
+  "directory": "C:/project/unviercity/YaPIS/lab1/build",
+  "command": "C:\\tools\\msys2\\mingw64\\bin\\clang++.exe -IC:/project/unviercity/YaPIS/lab1/include -g -o CMakeFiles\\lab1.dir\\src\\tree.cpp.obj -c C:\\project\\unviercity\\YaPIS\\lab1\\src\\tree.cpp",
+  "file": "C:\\project\\unviercity\\YaPIS\\lab1\\src\\tree.cpp",
+  "output": "CMakeFiles\\lab1.dir\\src\\tree.cpp.obj"
+}
+]
