@@ -8,7 +8,7 @@
 namespace lab {
     class App {
         public:
-        static void start() {
+        static void run() {
             std::string path = "../test1.txt";
             auto ids = tools::read(path);
 

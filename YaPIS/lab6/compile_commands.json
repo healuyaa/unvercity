@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/project/unviercity/YaPIS/lab6/build",
+  "command": "C:\\tools\\msys2\\mingw64\\bin\\clang++.exe -IC:/project/unviercity/YaPIS/lab6/include -g -o CMakeFiles\\lab6.dir\\src\\edge.cpp.obj -c C:\\project\\unviercity\\YaPIS\\lab6\\src\\edge.cpp",
+  "file": "C:\\project\\unviercity\\YaPIS\\lab6\\src\\edge.cpp",
+  "output": "CMakeFiles\\lab6.dir\\src\\edge.cpp.obj"
+},
+{
+  "directory": "C:/project/unviercity/YaPIS/lab6/build",
+  "command": "C:\\tools\\msys2\\mingw64\\bin\\clang++.exe -IC:/project/unviercity/YaPIS/lab6/include -g -o CMakeFiles\\lab6.dir\\src\\main.cpp.obj -c C:\\project\\unviercity\\YaPIS\\lab6\\src\\main.cpp",
+  "file": "C:\\project\\unviercity\\YaPIS\\lab6\\src\\main.cpp",
+  "output": "CMakeFiles\\lab6.dir\\src\\main.cpp.obj"
+}
+]

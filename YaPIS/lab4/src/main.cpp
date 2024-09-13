@@ -1,5 +1,5 @@
-#include <iostream>
+#include "App.hpp"
 
-int main(int, char**){
-    std::cout << "Hello, from lab4!\n";
+int main() {
+    lab::App::run();
 }

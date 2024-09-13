@@ -6,7 +6,7 @@ from preprocess import preprocess_text
 def extract_keywords(documents):
     processed_docs = [preprocess_text(doc) for doc in documents]
     
-    vectorizer = TfidfVectorizer(ngram_range=(1, 2))
+    vectorizer = TfidfVectorizer(ngram_range=(1, 1))
     tfidf_matrix = vectorizer.fit_transform(processed_docs)
     
     return vectorizer, tfidf_matrix

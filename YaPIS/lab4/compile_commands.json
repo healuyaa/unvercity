@@ -1,7 +1,7 @@
 [
 {
   "directory": "C:/project/unviercity/YaPIS/lab4/build",
-  "command": "C:\\tools\\msys2\\mingw64\\bin\\c++.exe -IC:/project/unviercity/YaPIS/lab4/include -g -o CMakeFiles\\lab4.dir\\src\\main.cpp.obj -c C:\\project\\unviercity\\YaPIS\\lab4\\src\\main.cpp",
+  "command": "C:\\tools\\msys2\\mingw64\\bin\\clang++.exe -IC:/project/unviercity/YaPIS/lab4/include -g -o CMakeFiles\\lab4.dir\\src\\main.cpp.obj -c C:\\project\\unviercity\\YaPIS\\lab4\\src\\main.cpp",
   "file": "C:\\project\\unviercity\\YaPIS\\lab4\\src\\main.cpp",
   "output": "CMakeFiles\\lab4.dir\\src\\main.cpp.obj"
 }

@@ -6,7 +6,7 @@
 namespace lab {
     class App {
         public:
-        static void start() {
+        static void run() {
             std::string line;
             std::fstream file("../input.asm");
 
