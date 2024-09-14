@@ -30,7 +30,7 @@ def search():
     query = request.form['query']
     results = search_documents(query, vectorizer, tfidf_matrix, documents)
 
-    results_with_links = [(idx, doc, keywords) for idx, (doc, keywords) in enumerate(results)]
+    results_with_links = [(doc_idx, doc, keywords) for doc_idx, doc, keywords in results]
     
     return render_template('results.html', query=query, results=results_with_links)
 
