@@ -6,7 +6,7 @@
 
 class DoHamming {
     public:
-    static void start() {
+    static void run() {
         lab::HammingBasic quest1(748, 5, false);
 
         std::cout << "code word: ";
@@ -30,7 +30,7 @@ class DoHamming {
         quest2.print();
 
         std::cout << "Set err on index: ";
-        quest2.SetCode(1);
+        quest2.SetCode(4);
         quest2.SetCode(2);
         quest2.print();
 
