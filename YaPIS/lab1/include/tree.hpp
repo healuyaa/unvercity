@@ -4,6 +4,7 @@
 #include <vector>
 
 namespace tree {
+    const std::string none_ = "none";
     struct Node {
         Node(char k) : key(k), left(nullptr), right(nullptr) {}
 
@@ -14,6 +15,7 @@ namespace tree {
     };
 
     Node* insert(Node* root, const std::string& id);
-    bool search(Node* root, const std::string& id);
+    std::string search(Node* root, const std::string& id);
+    Node* remove(Node* root, const std::string& id);
     void print(Node* root, std::string indent = "", bool is_left = true);
 }

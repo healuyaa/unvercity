@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cctype>
+#include <iostream>
 #include <unordered_set>
 
 namespace lex {
@@ -112,7 +113,43 @@ namespace lex {
                 tokens.push_back({"Unknown", last_token});
             }
         }
-
         return tokens;
     }
+
+    void analyzeCode(const std::vector<std::string>& lines) {
+        for (const std::string& line : lines) {
+            std::vector<Token> tokens = lexicalAnalysis(line);
+
+            std::cout << "Tokens for line: " << line << std::endl;
+            for (const auto& token : tokens) {
+                std::cout << token.type << ": " << token.value << std::endl;
+            }
+
+            if (!tokens.empty() && tokens[0].type == "Label") {
+                std::cout << "Label found: " << tokens[0].value << std::endl;
+                tokens.erase(tokens.begin());
+            }
+
+            if (!tokens.empty()) {
+                if (!isCommandValid(tokens)) {
+                    std::cerr << "err wrong token " << line << std::endl;
+                } else {
+                    std::cout << "correct token " << line << std::endl;
+                }
+            }
+        }
+    }
+
+    bool isCommandValid(const std::vector<Token>& tokens) {
+        if (tokens.empty()) return false;
+
+        if (isLabel(tokens[0].value) ) {
+            
+        } else {
+            if (isCommand(tokens[0].value)) {
+                // return isRegister(tokens.)
+            }
+        }
+    }
+
 }

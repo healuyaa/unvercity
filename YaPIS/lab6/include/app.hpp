@@ -10,15 +10,18 @@ namespace lab {
         public:
         static void run() {
             std::vector<std::vector<Node::Edge>> graph = {
-                {{1, 4}, {2, 1}},
-                {{0, 4}, {2, 2}, {3, 1}},
-                {{0, 1}, {1, 2}, {3, 5}},
-                {{1, 1}, {2, 5}}
+                {{1, 2}, {3, 5}},
+                {{0, 2}, {2, 4}, {4, 1}},
+                {{1, 4}, {3, 3}, {5, 6}},
+                {{0, 5}, {2, 3}},
+                {{1, 1}, {5, 2}},
+                {{2, 6}, {4, 2}}
             };
+
 
             Node::Values values{
                 .start = 0,
-                .target = 3,
+                .target = 5,
                 .cur_distance = 0,
                 .min_distance = std::numeric_limits<int>::max()
             };
