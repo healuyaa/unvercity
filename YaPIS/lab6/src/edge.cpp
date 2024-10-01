@@ -6,7 +6,14 @@
 #include "edge.hpp"
 
 namespace Node {
-    void dfs_recursive(int node, int target, std::vector<std::vector<Edge>>& graph, std::vector<bool>& visited, std::vector<int>& path, int& current_distance, int& min_distance, std::vector<int>& best_path) {
+    void dfs_recursive(int node, 
+                int target, 
+                std::vector<std::vector<Edge>>& graph, 
+                std::vector<bool>& visited, 
+                std::vector<int>& path, 
+                int& current_distance, 
+                int& min_distance, 
+                std::vector<int>& best_path) {
         visited[node] = true;
         path.push_back(node);
         
