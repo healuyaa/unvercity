@@ -37,6 +37,8 @@ namespace code {
     }
 
     void Iteratives::encodeSquare() {     
+        int temp_xy = 0;
+
         for (int i = 0; i < SIZE_MATRIX_4; ++i) {
             int temp_x = 0;
             int temp_y = 0;
@@ -44,6 +46,8 @@ namespace code {
             for(int j = 0; j < SIZE_MATRIX_4; ++j) {
                 v->matrix[i][j] == 1 ? ++temp_x : temp_x;
                 v->matrix[j][i] == 1 ? ++temp_y : temp_y;
+
+                temp_xy ^= v->matrix[i][j];
             }
 
             v->paritet_y[i] = (temp_x & 1) == 0 ? 0 : 1;
@@ -53,20 +57,25 @@ namespace code {
         int count = 0;
         for(int i = 0; i < SIZE_MATRIX_4; ++i) {
             (v->paritet_x[i] & 1) == 0 ? count : ++count;
-            (v->paritet_y[i] & 1) == 0 ? count : ++count;            
+            (v->paritet_y[i] & 1) == 0 ? count : ++count;    
+
+            temp_xy ^= v->paritet_x[i] ^ v->paritet_y[i];
         }
 
         if(paritet == Paritets::three) {
-            v->paritet_xy = (count & 1) == 0 ? 0 : 1;
+            v->paritet_xy = temp_xy;
         }
     }
 
     void Iteratives::encodeRectangle() {
+        int temp_xy = 0;
+
         for (int i = 0; i < SIZE_MATRIX_2; ++i) {
             int temp_x = 0;
 
             for (int j = 0; j < SIZE_MATRIX_8; ++j) {
                 v->matrix[i][j] == 1 ? ++temp_x : temp_x;
+                temp_xy ^= v->matrix[i][j];
             }
 
             v->paritet_y[i] = (temp_x & 1) == 0 ? 0 : 1;
@@ -85,13 +94,15 @@ namespace code {
         int count = 0;
         for(int i = 0; i < SIZE_MATRIX_8; ++i) {
             (v->paritet_x[i] & 1) == 0 ? count : ++count;
+            temp_xy ^= v->paritet_x[i];
         }
         for(int i = 0; i < SIZE_MATRIX_2; ++i) {
             (v->paritet_y[i] & 1) == 0 ? count : ++count;
+            temp_xy ^= v->paritet_y[i];
         }
 
         if(paritet == Paritets::three) {
-            v->paritet_xy = (count & 1) == 0 ? 0 : 1;
+            v->paritet_xy = temp_xy;
         }
     }
 
@@ -106,6 +117,8 @@ namespace code {
             int error_x = -1;
             int error_y = -1;
 
+            int temp_xy = 0;
+
             for (int i = 0; i < SIZE_MATRIX_4; ++i) {
                 int temp_x = 0;
                 int temp_y = 0;                
@@ -113,6 +126,8 @@ namespace code {
                 for (int j = 0; j < SIZE_MATRIX_4; ++j) {
                     v->matrix[i][j] == 1 ? ++temp_x : temp_x;
                     v->matrix[j][i] == 1 ? ++temp_y : temp_y;
+
+                    temp_xy ^= v->matrix[i][j];
                 }
 
                 temp_x = (temp_x & 1) == 0 ? 0 : 1;
@@ -133,10 +148,12 @@ namespace code {
 
                     for(int i = 0; i < SIZE_MATRIX_4; ++i) {
                         (temp_paritet_x[i] & 1) == 0 ? count : ++count;
-                        (temp_paritet_y[i] & 1) == 0 ? count : ++count; 
+                        (temp_paritet_y[i] & 1) == 0 ? count : ++count;
+
+                        temp_xy ^= temp_paritet_x[i] ^ temp_paritet_y[i];
                     }
 
-                    int temp_compare = (count & 1) == 0 ? 0 : 1;
+                    int temp_compare = temp_xy;
                     
                     if(temp_compare != v->paritet_xy) {
                         std::cout << "Parity error detected!" << std::endl;
@@ -167,6 +184,8 @@ namespace code {
             int error_x = -1;
             int error_y = -1;
 
+            int temp_xy = 0;
+
             int err_pref_x, err_pref_y;
 
             for (int i = 0; i < SIZE_MATRIX_2; ++i) {
@@ -174,6 +193,8 @@ namespace code {
 
                 for (int j = 0; j < SIZE_MATRIX_8; ++j) {
                     v->matrix[i][j] == 1 ? ++temp_x : temp_x;
+
+                    temp_xy ^= v->matrix[i][j];
                 }
 
                 temp_x = (temp_x & 1) == 0 ? 0 : 1;
@@ -208,13 +229,15 @@ namespace code {
 
                 for(auto temp: temp_paritet_y) {                
                     (temp & 1) == 0 ? count : ++count; 
+                    temp_xy ^= temp;
                 }
 
                 for(auto temp : temp_paritet_x) {
                     (temp & 1) == 0 ? count : ++count;
+                    temp_xy ^= temp;
                 }
 
-                std::uint8_t temp_compare = (count & 1) == 0 ? 0 : 1;
+                std::uint8_t temp_compare = temp_xy;
                 
                 if(temp_compare != v->paritet_xy || error_x != -1 || error_y != -1) {
                     std::cout << "Parity error detected!" << std::endl;
@@ -362,13 +385,14 @@ namespace code {
     void Multiple::encodeMultiple() {
         if(variable == LayersVariable::four_two) {
             for(auto &v_: v) {
-                int a = 0;
+                int temp_xy = 0;
                 
                 for (int i = 0; i < SIZE_MATRIX_2; ++i) {
                     std::uint8_t temp_x = 0;
 
                     for (int j = 0; j < SIZE_MATRIX_4; ++j) {
                         temp_x ^= v_->matrix[j][i];
+                        temp_xy ^= v_->matrix[j][i];
                     }
 
                     v_->paritet_y[i] = temp_x;
@@ -387,13 +411,15 @@ namespace code {
                 std::uint8_t count = 0;
                 for(int i = 0; i < SIZE_MATRIX_4; ++i) {
                     count ^= v_->paritet_x[i];
+                    temp_xy ^= v_->paritet_x[i];
                 }
                 for(int i = 0; i < SIZE_MATRIX_2; ++i) {
                     count ^= v_->paritet_y[i];
+                    temp_xy ^= v_->paritet_y[i];
                 }
 
                 if(paritet >= Paritets::three) {
-                    v_->paritet_xy = count;
+                    v_->paritet_xy = temp_xy;
                 }
 
                 if(paritet >= Paritets::four) {                
@@ -525,6 +551,8 @@ namespace code {
                     int error_x = -1;
                     int error_y = -1;
 
+                    int error_xy = 0;
+
                     int error_x_dl = -1, error_y_dl = -1;
                     int error_x_dr = -1, error_y_dr = -1;
 
@@ -535,6 +563,7 @@ namespace code {
                         int temp_x = 0;
                         for (int j = 0; j < SIZE_MATRIX_4; ++j) {
                             temp_x ^= v_->matrix[i][j];
+                            error_xy ^= v_->matrix[i][j];
                         }
                         temp_paritet_y[i] = temp_x & 1;
 
