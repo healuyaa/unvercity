@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
-data = np.loadtxt('seeds_dataset.txt')
+data = np.loadtxt('dataset/seeds_dataset.txt')
 
 X = data[:, :-1]
 y = data[:, -1]
-X_mean = np.mean(X, axis=0)
-X_std = np.std(X, axis=0)
+X_mean = np.mean(X, axis = 0)
+X_std = np.std(X, axis = 0)
 X_normalized = (X - X_mean) / X_std
 
 cov_matrix = np.cov(X_normalized.T)
@@ -21,17 +21,17 @@ eigenvectors = eigenvectors[:, sorted_indices]
 X_pca_manual_2D = X_normalized @ eigenvectors[:, :2]
 X_pca_manual_3D = X_normalized @ eigenvectors[:, :3]
 
-pca = PCA(n_components=3)
+pca = PCA(n_components = 3)
 X_pca_sklearn = pca.fit_transform(X_normalized)
 
-plt.figure(figsize=(10, 5))
+plt.figure(figsize = (10, 5))
 plt.subplot(1, 2, 1)
-plt.scatter(X_pca_manual_2D[:, 0], X_pca_manual_2D[:, 1], c=y, cmap='viridis')
+plt.scatter(X_pca_manual_2D[:, 0], X_pca_manual_2D[:, 1], c = y, cmap='viridis')
 plt.title('PCA (Manual) 2D')
 plt.colorbar()
 
 plt.subplot(1, 2, 2)
-plt.scatter(X_pca_sklearn[:, 0], X_pca_sklearn[:, 1], c=y, cmap='viridis')
+plt.scatter(X_pca_sklearn[:, 0], X_pca_sklearn[:, 1], c = y, cmap='viridis')
 plt.title('PCA (sklearn) 2D')
 plt.colorbar()
 
