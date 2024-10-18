@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Текстовая обработка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            width: 800px;
+            margin: auto;
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons form {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .flash {
+            color: red;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Текстовая обработка</h1>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash">
+              {% for message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+        
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file">Загрузить файл (.docx):</label><br><br>
+            <input type="file" name="file" id="file" accept=".docx" required>
+            <br><br>
+            <button type="submit">Загрузить файл</button>
+        </form>
+
+        <h2>Текст:</h2>
+        <textarea readonly>{{ text }}</textarea>
+
+        {% if text %}
+        <div class="buttons">
+            <form action="{{ url_for('summarize_text') }}" method="POST">
+                <button type="submit">Сжать текст</button>
+            </form>
+            <form action="{{ url_for('extract_keywords_route') }}" method="POST">
+                <button type="submit">Извлечь ключевые слова</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

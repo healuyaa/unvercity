@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-DOCUMENTS_DIR = 'documents/'
+DOCUMENTS_DIR = 'lab1/documents/'
 
 def load_documents():
     documents = []

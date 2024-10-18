@@ -1,0 +1,62 @@
+Количество слов: 51
+Морфологический анализ:
+Are (be, AUX)
+n’t (not, PART)
+you (you, PRON)
+lucky (lucky, ADJ)
+you (you, PRON)
+’re (’re, VERB)
+a (a, DET)
+bleeder (bleeder, NOUN)
+? (?, PUNCT)
+
+ (
+, SPACE)
+Are (be, AUX)
+n’t (not, PART)
+you (you, PRON)
+lucky (lucky, ADJ)
+you (you, PRON)
+’re (’re, VERB)
+a (a, DET)
+bleeder (bleeder, NOUN)
+? (?, PUNCT)
+
+ (
+, SPACE)
+So (so, ADV)
+hold (hold, VERB)
+your (your, PRON)
+razor (razor, NOUN)
+wide (wide, ADJ)
+
+ (
+, SPACE)
+And (and, CCONJ)
+swing (swing, VERB)
+it (it, PRON)
+to (to, ADP)
+the (the, DET)
+skies (sky, NOUN)
+
+ (
+, SPACE)
+Are (be, AUX)
+n’t (not, PART)
+you (you, PRON)
+lucky (lucky, ADJ)
+you (you, PRON)
+’re (’re, VERB)
+a (a, DET)
+bleeder (bleeder, NOUN)
+? (?, PUNCT)
+
+ (
+, SPACE)
+Do (do, VERB)
+what (what, PRON)
+you (you, PRON)
+need (need, VERB)
+to (to, PART)
+stay (stay, VERB)
+alive (alive, ADJ)

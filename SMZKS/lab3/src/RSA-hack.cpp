@@ -10,7 +10,7 @@ namespace RSA_h {
         BN_dec2bn(&this->N, N.c_str());
         BN_dec2bn(&this->e, e.c_str());
 
-        encrypted_blocks.resize(12);
+        encrypted_blocks.resize(13);
         for(auto &eb: encrypted_blocks) {
             eb = BN_new();
         }
