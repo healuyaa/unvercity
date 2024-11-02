@@ -1,0 +1,2 @@
+pacman -S bison flex
+pacman -S make

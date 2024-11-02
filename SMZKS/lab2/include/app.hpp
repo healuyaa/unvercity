@@ -11,7 +11,7 @@ namespace lab {
     class App {
         public:
         static void run() {
-            code::Iteratives app(60505, code::SIZES::size_square, code::Paritets::three);
+            code::Iteratives app(60505, code::SIZES::size_square, code::Paritets::two);
             code::Multiple app_m(60505, code::LayersVariable::four_two, code::Paritets::five);
 
             Type run = Type::SQUARE;
