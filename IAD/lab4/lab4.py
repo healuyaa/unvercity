@@ -9,7 +9,6 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import Adam
 import matplotlib.pyplot as plt
 
-# 1. Загрузка и предобработка данных
 url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/thyroid-disease/ann-train.data'
 data = pd.read_csv(url, delim_whitespace=True, header=None)
 data = data.dropna()
@@ -26,7 +25,6 @@ scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-# 2. Предобучение с помощью стека RBM
 def pretrain_rbm_stack(X, layer_sizes, epochs=20, learning_rate=0.001, batch_size=10):
     rbm_layers = []
     input_data = X
@@ -35,20 +33,17 @@ def pretrain_rbm_stack(X, layer_sizes, epochs=20, learning_rate=0.001, batch_siz
         rbm = BernoulliRBM(n_components=size, learning_rate=learning_rate, n_iter=epochs, batch_size=batch_size, random_state=42)
         rbm.fit(input_data)
         rbm_layers.append(rbm)
-        input_data = rbm.transform(input_data)  # Переход к следующему слою с использованием выходных данных текущего
+        input_data = rbm.transform(input_data)
 
     return rbm_layers
 
-# Определяем размеры скрытых слоев для предобучения
 layer_sizes = [64, 32, 16]
 rbm_layers = pretrain_rbm_stack(X_train, layer_sizes, epochs=20, learning_rate=0.001)
 
-# 3. Создание модели и инициализация весов RBM
 def build_classification_model_with_rbm(rbm_layers, input_dim, output_dim):
     model = Sequential()
     model.add(Dense(64, activation='relu', input_shape=(input_dim,)))
 
-    # Присвоение весов из предобученных RBM для каждого слоя
     model.layers[0].set_weights([rbm_layers[0].components_.T, np.zeros(64)])
 
     model.add(Dense(32, activation='relu'))
@@ -62,18 +57,14 @@ def build_classification_model_with_rbm(rbm_layers, input_dim, output_dim):
 
     return model
 
-# 4. Обучение модели с предобучением RBM
 model_with_pretrain = build_classification_model_with_rbm(rbm_layers, input_dim=X_train.shape[1], output_dim=3)
 history_with_pretrain = model_with_pretrain.fit(X_train, y_train, epochs=50, batch_size=32, validation_split=0.2, verbose=1)
 
-# 5. Оценка модели с предобучением
 y_pred_with_pretrain = np.argmax(model_with_pretrain.predict(X_test), axis=1)
 f1_with_pretrain = f1_score(y_test, y_pred_with_pretrain, average='weighted')
 conf_matrix_with_pretrain = confusion_matrix(y_test, y_pred_with_pretrain)
 
-# 6. Графическое представление результатов
 plt.figure(figsize=(14, 5))
-# Используем history с предобучением RBM, чтобы получить значения accuracy и loss
 plt.plot(history_with_pretrain.history['accuracy'], label='Train Accuracy (с предобучением RBM)')
 plt.plot(history_with_pretrain.history['val_accuracy'], label='Val Accuracy (с предобучением RBM)')
 plt.plot(history_with_pretrain.history['loss'], label='Train Loss (с предобучением RBM)')
@@ -84,13 +75,11 @@ plt.ylabel('Accuracy / Loss')
 plt.legend()
 plt.show()
 
-# График сравнения F1 Score
 plt.figure()
 bars = plt.bar(['С предобучением (RBM)'], [f1_with_pretrain], color='green')
 plt.title('Сравнение F1 Score (с предобучением RBM)')
 plt.ylabel('F1 Score')
 
-# Выводим числовые значения над столбцами
 for bar in bars:
     yval = bar.get_height()
     plt.text(bar.get_x() + bar.get_width() / 2, yval, round(yval, 3), ha='center', va='bottom')
